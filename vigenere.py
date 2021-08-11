@@ -62,14 +62,3 @@ def decode(message, key):
   # transform decoded message from array to string, and return
   decoded_str = "".join(decoded_message)
   return decoded_str
- 
-mensagem = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-chave = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-# encodado = encode(mensagem, chave)
-# decodado = decode(encodado, chave)
-
-# print(f'mensagem {mensagem}')
-# print(f'chave {chave}')
-# print(f'encodado {encodado}')
-# print(f'decodado {decodado}')
