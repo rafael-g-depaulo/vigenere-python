@@ -1,17 +1,7 @@
 #! /usr/bin/python3
 import math
-
-# alphabet with all valid chars
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-comAcentos = "ÄÅÁÂÀÃÉÊËÈÍÎÏÌÖÓÔÒÕÜÚÛÇ"
-semAcentos = "AAAAAAEEEEIIIIOOOOOUUUC"
-
-def processString(input_str):
-  res = input_str.upper()
-  for i in range(len(comAcentos)):
-    res = res.replace(comAcentos[i], semAcentos[i])
-  return res
+from constants import alphabet, comAcentos, semAcentos
+from strUtils import processString
 
 def encode(message, key):
   message_str = processString(message)
