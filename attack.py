@@ -18,7 +18,7 @@ def guessKeylen(message_in, max_level, target):
   keylenGuess = margins[0][0]
   return keylenGuess
 
-def determineKey(message_in, key_length, expected_char_dist):
+def guessKey(message_in, key_length, expected_char_dist):
   # process input and separate chars into groups
   message = processStringAndRemoveNonLetters(message_in)
   groups = groupChars(message, key_length)
@@ -46,25 +46,3 @@ def determineKey(message_in, key_length, expected_char_dist):
   
   keyGuess = "".join(keyArr)
   return keyGuess
-
-encoded_msg = "N UQQVM CAE FEMF PN OVREM QQ IUTQAQEQ, PAZA GAQMF MF OVREMF BBXVMYRNNRFVONE, R PVESMEOND NE SDRCHQAOVMF PNE YQGDNE QA GQKFB BYMAA, B CHQ VZGQERRDR OBY N MCXVONONA QUEQGM QM NZNXVER PR REQDGRZPUN, BBD RJRYCXB, ER B SAE M YQGDN YNUF REQDGRZGQ RY HY GQKFB-OVREM PGWA GQKFB BYMAA REGM RY VZTXRE, R BBEFUIQY EHECQVFND DGR B PAEDRECAAPR M R, BBDDGR Q R M YQGDN YNUF REQDGRZGQZQAFR GFMQM RY VZTXRE"
-
-max_level = 10
-
-keylenPt = guessKeylen(encoded_msg, max_level, NormalIC_pt)
-keylenEn = guessKeylen(encoded_msg, max_level, NormalIC_en)
-
-print(f'i guess that the key length is {keylenPt} if the text is in portuguese')
-print(f'i guess that the key length is {keylenEn} if the text is in english')
-
-keyPt = determineKey(encoded_msg, keylenPt, char_distribution_pt)
-keyEn = determineKey(encoded_msg, keylenEn, char_distribution_en)
-
-print(f'i guess the key is {keyPt} if the text is in portuguese')
-print(f'i guess the key is {keyEn} if the text is in english')
-
-decodedPt = decode(encoded_msg, keyPt)
-decodedEn = decode(encoded_msg, keyEn)
-
-print(f'the decoded portuguese message is {decodedPt}')
-print(f'the decoded english message is {decodedEn}')
